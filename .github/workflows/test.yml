@@ -14,11 +14,11 @@ jobs:
     name: run task
     uses: RTC12-Test/repo3/.github/workflows/test.yml@main
     with:
-      REPO: repo4
+     REPO: ${{ github.event.repository.name }}
   test:
     name: test
     needs: ['build']
-    runs-on : self-hosted
+    runs-on : ${{ github.event.repository.name }}
     steps:
         - name: echo test
           run: | 
