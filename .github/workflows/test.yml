@@ -23,6 +23,7 @@ jobs:
         - name: echo test
           run: | 
             echo "hello"
+            sleep 100
             
     
         - uses: actions/checkout@v4
