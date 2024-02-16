@@ -27,6 +27,12 @@ jobs:
             
     
         - uses: actions/checkout@v4
+
+        - name: list
+          run: ls
+
+        - name: path
+          run: pwd
         
         - name: terminate task
           run: |
