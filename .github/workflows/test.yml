@@ -1,0 +1,35 @@
+name: test
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+      
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  build:
+    name: run task
+    uses: RTC12-Test/repo3/.github/workflows/test.yml@main
+    with:
+      REPO: repo3
+  test:
+    name: test
+    needs: ['build']
+    runs-on : self-hosted
+    steps:
+        - name: echo test
+          run: | 
+            echo "hello"
+            
+    
+        - uses: actions/checkout@v4
+        
+        - name: terminate task
+          run: |
+            cd /home/docker/actions-runner/
+            ./config.sh remove --token ${REG_TOKEN}
+            rm -rf /home/docker/actions-runner
+          
