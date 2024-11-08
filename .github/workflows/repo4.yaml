@@ -1,11 +1,11 @@
 name: Repo4
 on:
-    workflow_dispatch:
-        inputs: 
-            env: 
-                type: string
-                default: ""
-                required: false
+    # workflow_dispatch:
+    #     inputs: 
+    #         env: 
+    #             type: string
+    #             default: ""
+    #             required: false
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -14,7 +14,7 @@ permissions:
 jobs:
   Repo4:
     name: Repo4
-    environment: ${{ inputs.env }}
+    environment: ${{ github.event.inputs.env }}
     runs-on : ubuntu-latest
     steps:
         - uses: actions/checkout@v3
