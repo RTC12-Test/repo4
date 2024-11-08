@@ -4,7 +4,7 @@ on:
         inputs: 
             env: 
                 type: string
-                default: ""
+                default: dev
                 required: false
 
 permissions:
