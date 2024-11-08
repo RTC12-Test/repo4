@@ -1,6 +1,6 @@
 name: Repo4
 on:
-    # workflow_dispatch:
+    workflow_dispatch:
     #     inputs: 
     #         env: 
     #             type: string
