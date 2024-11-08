@@ -14,11 +14,11 @@ permissions:
 jobs:
   Repo4:
     name: Repo4
-    environment: ${{ github.event.inputs.env }}
+    environment: ${{ inputs.env }}
     runs-on : ubuntu-latest
     steps:
         - uses: actions/checkout@v3
-      
-        - name: Echo
-          run: echo Repo4
+       
+        - name: Echo ${{ inputs.env }} environment
+          run: echo Repo4  ${{ inputs.env }} env
   
