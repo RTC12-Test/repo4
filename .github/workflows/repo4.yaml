@@ -1,4 +1,4 @@
-name: test
+name: Repo4
 on:
     workflow_dispatch:
         inputs: 
