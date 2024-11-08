@@ -1,0 +1,24 @@
+name: test
+on:
+    workflow_dispatch:
+        inputs: 
+            env: 
+                type: string
+                default: ""
+                required: false
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  Repo4:
+    name: Repo4
+    environment: ${{ inputs.env }}
+    runs-on : ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+      
+        - name: Echo
+          run: echo Repo4
+  
