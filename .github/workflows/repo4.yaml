@@ -1,11 +1,11 @@
 name: Repo4
 on:
     workflow_dispatch:
-    #     inputs: 
-    #         env: 
-    #             type: string
-    #             default: ""
-    #             required: false
+        inputs: 
+            env: 
+                type: string
+                default: ""
+                required: false
 
 permissions:
   id-token: write   # This is required for requesting the JWT
