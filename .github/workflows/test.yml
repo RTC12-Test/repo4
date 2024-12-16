@@ -24,5 +24,6 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: https://hooks.slack.com/services/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
+        SLACK_MESSAGE: 'test message'
         
 
