@@ -19,6 +19,8 @@ jobs:
     name: test
     runs-on : ubuntu-latest
     steps:
-        - name: echo test
-          run: | 
-            echo "hello"
+    - uses: actions/checkout@v4
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: "https://hooks.slack.com/services/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"
