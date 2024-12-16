@@ -20,21 +20,17 @@ jobs:
     runs-on : ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    # - name: Slack Notification
-    #   uses: slackapi/slack-github-action@v2.0.0
-    #   with:
-      # # uses: craftech-io/slack-action@v1
-      #   webhook: https://hooks.slack.com/services/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
-      #   webhook-type: incoming-webhook
-      #   payload: |
-      #    channel: C085577CPRT
-      #          text: "*GitHub Action build result*: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-      #          blocks:
-      #            - type: "section"
-      #              text:
-      #              type: "mrkdwn"
-      #              text: "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+    - uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: general
+        SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_MESSAGE: 'Post Content :rocket:'
+        SLACK_TITLE: Post Title
+        SLACK_USERNAME: rtCamp
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
+     
     - name: Post a message in a channel
       uses: slackapi/slack-github-action@v2.0.0
       with:
