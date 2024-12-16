@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: rtCamp/action-slack-notify@v2
       env:
-        SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+        # SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
         SLACK_MESSAGE: 'Post Content :rocket:'
         SLACK_TITLE: hello
         # SLACK_USERNAME: rtCamp
