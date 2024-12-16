@@ -24,3 +24,4 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: "https://hooks.slack.com/services/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"
+        SLACK_TITLE: "hello"
