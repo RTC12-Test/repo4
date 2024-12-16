@@ -24,7 +24,7 @@ jobs:
       uses: slackapi/slack-github-action@v2.0.0
       with:
       # uses: craftech-io/slack-action@v1
-        webhook: https://hooks.slack.com/services/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
+        webhook: https://hooks.slack.com/services/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
         webhook-type: incoming-webhook
         payload: |
          channel: C085577CPRT
