@@ -38,10 +38,9 @@ jobs:
     - name: Post a message in a channel
       uses: slackapi/slack-github-action@v2.0.0
       with:
-       webhook: https://hooks.slack.com/services/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
+       webhook: ${{ secrets.SLACK_WEBHOOK }}
        webhook-type: incoming-webhook
        payload: |
-        channel: C085577CPRT
         text: "*GitHub Action build result*: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
         blocks:
         - type: "section"
