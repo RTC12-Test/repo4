@@ -1,7 +1,7 @@
 name: test
 on:
-  # push:
-  #   branches: [ "main" ]
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
       
 
@@ -23,5 +23,6 @@ jobs:
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
+        SLACK_CHANNEL: deveops
         SLACK_WEBHOOK: "https://hooks.slack.com/services/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"
         SLACK_TITLE: "hello"
