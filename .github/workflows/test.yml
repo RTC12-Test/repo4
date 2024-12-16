@@ -38,7 +38,7 @@ jobs:
     - name: Post a message in a channel
       uses: slackapi/slack-github-action@v2.0.0
       with:
-       webhook: https://hooks.slack.com/services/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
+       webhook: https://hooks.slack.com/services/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
        webhook-type: incoming-webhook
        payload: |
         channel: C085577CPRT
