@@ -7,7 +7,7 @@ on:
     #             default: dev
     #             required: false
  schedule:
-    - cron: '0   12  1-7 *   *  [ "$(date '+\%u')" = "1" ]'
+    - cron: 0   12  1-7 *   *  [ "$(date '+\%u')" = "1" ]
 permissions:
   id-token: write   # This is required for requesting the JWT
   contents: read    # This is required for actions/checkout
