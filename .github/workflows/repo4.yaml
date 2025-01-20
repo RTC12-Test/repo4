@@ -21,7 +21,8 @@ jobs:
     
   slack-success:
       needs: ["Repo4"]
-      if: ${{ needs.Repo4.result == 'success' }}
+      # if: ${{ needs.Repo4.result == 'success' }}
+     if: ${{ success() }}
       name: "Slack-success"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
