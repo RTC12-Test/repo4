@@ -18,8 +18,30 @@ jobs:
     name: Repo4
     # environment: ${{ inputs.env }
     uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
-    secrets: 
-        webhook-url: "https://hooks.slack.com/services/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"
+    
+  slack-success:
+      needs: ["Repo4"]
+      if: ${{ job.status == 'success' }}
+      name: "Slack-success"
+      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+      with:
+        slack-colour: 00ff00
+        message: success
+        title: success    
+      secrets: 
+        webhook-url: "https://hooks.slack.com/services/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"  
+
+  slack-failure:
+      needs: ["Repo4"]
+      if: ${{ job.status == 'failute' }}
+      name: "Slack fail"
+      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+      with:
+        slack-colour: ff0000
+        message: fail
+        title: fail
+      secrets: 
+        webhook-url: "https://hooks.slack.com/services/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"   
     # runs-on : ubuntu-latest
     # steps:
     #     - uses: actions/checkout@v3
