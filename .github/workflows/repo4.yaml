@@ -32,7 +32,7 @@ jobs:
         webhook-url: "https://hooks.slack.com/services/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"  
 
   slack-failure:
-      # needs: ["Repo4"]
+      needs: ["Repo4"]
       if: ${{ github.Repo4.result == 'failure' }}
       name: "Slack fail"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
