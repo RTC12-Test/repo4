@@ -19,7 +19,7 @@ jobs:
     # environment: ${{ inputs.env }
     uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
     with: 
-        webhook-url: "https://hooks.slack.com/services/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"
+        webhook-url: 'https://hooks.slack.com/services/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'
     # runs-on : ubuntu-latest
     # steps:
     #     - uses: actions/checkout@v3
