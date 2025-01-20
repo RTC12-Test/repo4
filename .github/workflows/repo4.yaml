@@ -21,7 +21,7 @@ jobs:
     
   slack-success:
       needs: ["Repo4"]
-      if: ${{ job.status == 'success' }}
+      if: ${{ needs.Repo4.status == 'success' }}
       name: "Slack-success"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
@@ -33,7 +33,7 @@ jobs:
 
   slack-failure:
       needs: ["Repo4"]
-      if: ${{ job.status == 'failute' }}
+      if: ${{ needs.Repo4.status == 'failute' }}
       name: "Slack fail"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
