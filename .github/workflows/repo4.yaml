@@ -6,20 +6,24 @@ on:
     #             type: string
     #             default: dev
     #             required: false
- schedule:
-    - cron: 0   12  1-7 *   *  [ "$(date '+\%u')" = "1" ]
-permissions:
-  id-token: write   # This is required for requesting the JWT
-  contents: read    # This is required for actions/checkout
+ push:
+#  schedule:
+#     - cron: 0   12  1-7 *   *  [ "$(date '+\%u')" = "1" ]
+# # permissions:
+#   id-token: write   # This is required for requesting the JWT
+#   contents: read    # This is required for actions/checkout
 
 jobs:
   Repo4:
     name: Repo4
-    environment: ${{ inputs.env }}
-    runs-on : ubuntu-latest
-    steps:
-        - uses: actions/checkout@v3
+    # environment: ${{ inputs.env }
+    uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
+    secrets:
+        webhook-url: "https://hooks.slack.com/services/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"
+    # runs-on : ubuntu-latest
+    # steps:
+    #     - uses: actions/checkout@v3
        
-        - name: Echo ${{ inputs.env }} environment
-          run: echo Repo4  ${{ inputs.env }} env
+    #     - name: Echo ${{ inputs.env }} environment
+    #       run: echo Repo4  ${{ inputs.env }} env
   
