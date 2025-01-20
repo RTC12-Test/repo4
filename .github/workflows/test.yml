@@ -1,9 +1,13 @@
 name: test
 on:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   workflow_dispatch:
-      
+  workflow_call:
+     secrets:
+      webhook-url:
+        description: "webhook secret url"
+        required: true
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -26,7 +30,7 @@ jobs:
         SLACK_MESSAGE: 'Post Content :rocket:'
         SLACK_TITLE: hello
         # SLACK_USERNAME: rtCamp
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK: ${{ secrets.webhook-url }}
 
      
     # - name: Post a message in a channel
