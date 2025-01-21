@@ -21,13 +21,13 @@ jobs:
     with:
       env: stage
 
-debug:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Print job results
-      run: |
-        echo "test_deploy_dev outcome: ${test_deploy_dev.outcomes[0]}"
-        echo "test_deploy_stage outcome: ${test_deploy_stage.outcomes[0]}"
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print job results
+        run: |
+          echo "test_deploy_dev outcome: ${test_deploy_dev.outcomes[0]}"
+          echo "test_deploy_stage outcome: ${test_deploy_stage.outcomes[0]}"
 
   slack-success:
     if: ${{ needs.test_deploy_dev.success && needs.test_deploy_stage.success }}
