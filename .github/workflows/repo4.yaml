@@ -26,7 +26,7 @@ jobs:
     steps:
     - name: Output result
       run: |
-        echo "test_deploy_dev outcome: ${test_deploy_dev.outcomes[0]}"
+        echo "test_deploy_dev outcomes: ${test_deploy_dev.outcomes}"
 
   slack-success:
     if: ${{ needs.test_deploy_dev.success && needs.test_deploy_stage.success }}
