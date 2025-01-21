@@ -29,8 +29,8 @@ jobs:
       env: stage
     
   slack-success:
-      needs: [test_deploy_dev,test_deploy_stage]
-      if: ${{ success() }}
+      # needs: [test_deploy_dev,test_deploy_stage]
+      if: ${{ contains(needs.job1.result, 'success') || contains(needs.job2.result, 'success') || contains(needs.job3.result, 'success') || contains(needs.job4.result, 'success') }}
       name: "Slack-success"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
