@@ -23,12 +23,12 @@ jobs:
 
   slack-success:
       # needs: [test_deploy_dev,test_deploy_stage]
-      if: ${{ contains(needs.job1.result, 'success') || contains(needs.job2.result, 'success') || contains(needs.job3.result, 'success') || contains(needs.job4.result, 'success') }}
+      # if: ${{ contains(needs.job1.result, 'success') || contains(needs.job2.result, 'success') || contains(needs.job3.result, 'success') || contains(needs.job4.result, 'success') }}
       name: "Slack-success"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
         slack-colour: 00ff00
-        message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
+        message: ${{ needs.test_deploy_dev.result == 'success' && format( 'The deployment for OAuth in Dev environment has been successfully completed.  = ormat('{server_url}/{repository}/actions/runs/{run_id}', server_url = github.server_url, repository = github.repository, run_id = github.run_id)) || format( 'The deployment for OAuth in Dev environment has failed. Run details: {url}', url = format('{server_url}/{repository}/actions/runs/{run_id}', server_url = github.server_url, repository = github.repository, run_id = github.run_id)) }}
         title: success    
       secrets: 
         webhook-url: "https://hooks.slack.com/services/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"  
