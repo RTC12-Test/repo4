@@ -29,13 +29,13 @@ jobs:
       env: stage
     
   slack-success:
-      needs: [test_deploy_dev,test_deploy_stage]
+      # needs: [test_deploy_dev,test_deploy_stage]
       if: ${{ success() }}
       name: "Slack-success"
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
         slack-colour: 00ff00
-        message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
+        message: success ${{ github.test_deploy_dev.outputs.env }} ${{ github.test_deploy_dev.outputs.env }}}}
         title: success    
       secrets: 
         webhook-url: "https://hooks.slack.com/services/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"  
