@@ -38,7 +38,7 @@ jobs:
         message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
         title: success    
       secrets: 
-        webhook-url: "https://hooks.slack.com/services/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"  
+        webhook-url: "https://hooks.slack.com/services/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"  
 
   slack-failure:
       needs: ["test_deploy_dev","test_deploy_stage"]
