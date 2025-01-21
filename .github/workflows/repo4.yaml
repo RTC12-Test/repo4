@@ -25,7 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Output result
-      run: echo "test_deploy_dev outcome: ${{ needs.test_deploy_dev.outputs.env }}"
+      run: |
+        echo "test_deploy_dev outcome: ${test_deploy_dev.outcomes[0]}"
 
   slack-success:
     if: ${{ needs.test_deploy_dev.success && needs.test_deploy_stage.success }}
