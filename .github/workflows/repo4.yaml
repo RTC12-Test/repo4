@@ -22,7 +22,7 @@ jobs:
       env: stage
 
   slack-success:
-    if: ${{ contains(needs.test_deploy_dev.result, 'success') || contains(needs.test_deploy_stage.result, 'success') }}
+    if: ${{ needs.test_deploy_dev.success && needs.test_deploy_stage.success }}
     name: "Slack-success"
     uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
     with:
@@ -31,7 +31,7 @@ jobs:
       title: success
     secrets: 
       webhook-url: "https://hooks.slack.com/services/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"  
-
+   
   slack-failure:
     if: ${{ failure() }}
     name: "Slack fail"
