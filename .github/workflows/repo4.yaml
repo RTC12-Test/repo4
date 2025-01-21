@@ -39,17 +39,32 @@ jobs:
   #     - name: ""
   #       run:  ""
 
-  slack-notify:
-   needs: ["test_deploy_dev"]
-   if: ${{ success() || failure() }}
-   name: "Slack-success"
-   uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
-   with:
-    slack-colour: ${{ needs.test_deploy_dev.result == 'success' && '00ff00' || 'ff0000' }}
-    message: ${{ needs.test_deploy_dev.result == 'success' && 'The deployment for OAuth in Dev environment has been successfully completed.' || 'The deployment for OAuth in Dev environment has failed' }}
-    title: ${{ needs.test_deploy_dev.result == 'success' && '✅Deployment Successful!' || '❌ Deployment Failed!' }}
-   secrets: 
-     webhook-url: "https://hooks.slack.com/services/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"
+  # slack-notify:
+  #  needs: ["test_deploy_dev"]
+  #  if: ${{ success() || failure() }}
+  #  name: "Slack-success"
+  #  uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+  #  with:
+  #   slack-colour: ${{ needs.test_deploy_dev.result == 'success' && '00ff00' || 'ff0000' }}
+  #   message: ${{ needs.test_deploy_dev.result == 'success' && 'The deployment for OAuth in Dev environment has been successfully completed.' || 'The deployment for OAuth in Dev environment has failed' }}
+  #   title: ${{ needs.test_deploy_dev.result == 'success' && '✅Deployment Successful!' || '❌ Deployment Failed!' }}
+  #  secrets: 
+  #    webhook-url: "https://hooks.slack.com/services/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"
+
+
+  slack-notify2:
+      needs: ["test_deploy_dev"]
+      if: ${{ success() || failure() }}
+      name: "Slack-success"
+      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+      with:
+        slack-colour: ${{ needs.test_deploy_dev.result == 'success' && '00ff00' || 'ff0000' }}
+        message: |
+          The deployment for OAuth in Dev environment has been ${{{ needs.test_deploy_dev.result == 'success' ? 'successfully completed' : 'failed' }}}
+          Run details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+        title: ${{ needs.test_deploy_dev.result == 'success' && '✅Deployment Successful!' || '❌ Deployment Failed!' }}
+      secrets: 
+        webhook-url: "https://hooks.slack.com/services/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"
 
   # slack-failure:
   #     needs: ["test_deploy_dev"]
