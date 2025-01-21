@@ -47,7 +47,7 @@ jobs:
       uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
       with:
         slack-colour: ff0000
-        message: fail
+        message: fail ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
         title: fail
       secrets: 
         webhook-url: "https://hooks.slack.com/services/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"   
