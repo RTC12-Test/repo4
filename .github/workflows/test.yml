@@ -24,7 +24,7 @@ jobs:
     runs-on : ubuntu-latest
     steps:
       - name: asd
-        run: python --version
+        run: pip install pandas
     # - uses: actions/checkout@v4
     # - uses: rtCamp/action-slack-notify@v2
     #   env:
