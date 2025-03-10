@@ -22,8 +22,8 @@ jobs:
     if: github.head_ref == 'develop'
     name: Test build dev
     uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
-    with: 
-      env: dev
+    # with: 
+    #   env: dev
 
   # test_deploy_stage:
   #   name: Test deploy stage
