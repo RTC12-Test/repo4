@@ -19,7 +19,7 @@ env:
   devmessage: "The deployment for OAuth in Dev environment has been successfully completed.${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 jobs:
   test_deploy_dev:
-    if: github.head_ref == 'develop'
+    if: github.base_ref == 'develop'
     name: Test build dev
     uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
     # with: 
