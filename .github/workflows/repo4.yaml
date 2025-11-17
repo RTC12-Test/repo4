@@ -12,15 +12,15 @@ on:
 # # permissions:
 #   id-token: write   # This is required for requesting the JWT
 #   contents: read    # This is required for actions/checkout
-env: 
-  devmessage: "The deployment for OAuth in Dev environment has been successfully completed.${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+# env: 
+#   devmessage: "The deployment for OAuth in Dev environment has been successfully completed.${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 jobs:
   test_deploy_dev:
     # if: github.ref == 'refs/heads/develop'
     name: Test deploy dev
-    uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
+    uses: RTC12-Test/repo3/.github/workflows/deploy.yaml@main
     with: 
-      env: dev
+      docker-image-tag: hello
 
   # test_deploy_stage:
   #   name: Test deploy stage
