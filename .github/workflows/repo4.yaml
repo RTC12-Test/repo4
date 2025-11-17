@@ -6,9 +6,10 @@ on:
     #             type: string
     #             default: dev
     #             required: false
- pull_request:
-     branches:
-         - develop
+ # pull_request:
+ #     branches:
+ #         - develop 
+ push:
   
 #  schedule:
 #     - cron: 0   12  1-7 *   *  [ "$(date '+\%u')" = "1" ]
@@ -25,12 +26,6 @@ jobs:
     with: 
       docker-image-tag: hello
 
-  # test_deploy_stage:
-  #   name: Test deploy stage
-  #   if: github.ref == 'refs/heads/main'
-  #   uses: RTC12-Test/repo3/.github/workflows/hello.yaml@main
-  #   with:
-  #     env: stage
     
   # slack-success:
   #     needs: [test_deploy_dev,test_deploy_stage]
