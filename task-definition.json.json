@@ -1,0 +1,166 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:247726796804:task-definition/acs-satapps-call-for-cron-abstracts-prod-task-definition:2",
+  "containerDefinitions": [
+    {
+      "name": "call_for_abstracts_cron_service",
+      "image": "247726796804.dkr.ecr.us-east-1.amazonaws.com/acs-satapps-call-for-abstracts-prod-ecr:734193_2025_11_12",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "command": ["php", "-d", "memory_limit=-1", "artisan"],
+      "environment": [
+        {
+          "name": "APP_ENV",
+          "value": "prod"
+        },
+        {
+          "name": "DBUSER_USERNAME",
+          "value": "c4p_lhusr"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "3306"
+        },
+        {
+          "name": "APP_NAME",
+          "value": "Call for Abstracts"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "call4paper.cydi228m4k3o.us-east-1.rds.amazonaws.com"
+        },
+        {
+          "name": "VITE_APP_NAME",
+          "value": "Call for Abstracts"
+        },
+        {
+          "name": "SESSION_DRIVER",
+          "value": "database"
+        },
+        {
+          "name": "DB_USERNAME",
+          "value": "c4p_lhusr"
+        },
+        {
+          "name": "SESSION_DOMAIN",
+          "value": "callforabstractstest.acs.org"
+        },
+        {
+          "name": "SAML2_IDP_HOST",
+          "value": "https://services.acs.org/simplesaml"
+        },
+        {
+          "name": "DB_CONNECTION",
+          "value": "mysql"
+        },
+        {
+          "name": "MAIL_MAILER",
+          "value": "postmark"
+        },
+        {
+          "name": "APP_URL",
+          "value": "https://callforabstractstest.acs.org"
+        },
+        {
+          "name": "DB_DATABASE",
+          "value": "call4paper"
+        },
+        {
+          "name": "CACHE_PREFIX",
+          "value": "dummy"
+        },
+        {
+          "name": "DBUSER_DATABASE",
+          "value": "call4paper"
+        },
+        {
+          "name": "DBUSER_HOST",
+          "value": "call4paper.cydi228m4k3o.us-east-1.rds.amazonaws.com"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "linuxParameters": {
+        "capabilities": {
+          "add": ["SYS_PTRACE"],
+          "drop": []
+        }
+      },
+      "secrets": [
+        {
+          "name": "APP_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:APP_KEY::"
+        },
+        {
+          "name": "CREATE_DB_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:CREATE_DB_PASSWORD::"
+        },
+        {
+          "name": "DBUSER_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:DB_PASSWORD::"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:DB_PASSWORD::"
+        },
+        {
+          "name": "POSTMARK_TOKEN",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:POSTMARK_TOKEN::"
+        },
+        {
+          "name": "RECAPTCHA_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:RECAPTCHA_SECRET::"
+        },
+        {
+          "name": "RECAPTCHA_SITE_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:RECAPTCHA_SITE_KEY::"
+        },
+        {
+          "name": "SAML2_IDP_x509",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:247726796804:secret:acs-abstracts-satapps-prod-sm-QXQniz:SAML2_IDP_x509::"
+        }
+      ],
+      "systemControls": []
+    }
+  ],
+  "family": "acs-satapps-call-for-cron-abstracts-prod-task-definition",
+  "taskRoleArn": "arn:aws:iam::247726796804:role/acs-abstracts-prod-ecs-role",
+  "executionRoleArn": "arn:aws:iam::247726796804:role/acs-abstracts-prod-ecs-role",
+  "networkMode": "awsvpc",
+  "revision": 2,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "ecs.capability.secrets.asm.environment-variables"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EC2", "FARGATE", "MANAGED_INSTANCES"],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "registeredAt": "2025-11-14T15:13:24.823000+05:30",
+  "registeredBy": "arn:aws:sts::247726796804:assumed-role/acs-abstracts-prod-terraform-openidrole/acsprodrolesession"
+}
