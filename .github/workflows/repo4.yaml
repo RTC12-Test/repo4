@@ -23,8 +23,8 @@ jobs:
     # if: github.ref == 'refs/heads/develop'
     name: Test deploy dev
     uses: RTC12-Test/repo3/.github/workflows/deploy.yaml@main
-    with: 
-      docker-image-tag: hello
+    # with: 
+    #   docker-image-tag: he
 
     
   # slack-success:
