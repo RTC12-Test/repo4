@@ -39,7 +39,6 @@ jobs:
         webhook: ${{ secrets.webhook }}
 
 
-
   slack-failure:
       needs: ["test_deploy_dev"]
       if: ${{ failure() }}
