@@ -27,17 +27,17 @@ jobs:
     #   docker-image-tag: he
 
     
-  # slack-success:
-  #     needs: [test_deploy_dev,test_deploy_stage]
-  #     if: ${{ success() }}
-  #     name: "Slack-success"
-  #     uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
-  #     with:
-  #       slack-colour: 00ff00
-  #       message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
-  #       title: success    
-  #     secrets: 
-  #       webhook-url: "https://hooks.slack.com/services/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"  
+  slack-success:
+      needs: [test_deploy_dev,test_deploy_stage]
+      if: ${{ success() }}
+      name: "Slack-success"
+      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+      with:
+        slack-colour: 00ff00
+        message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
+        title: success    
+      secrets: 
+        webhook-url: "https://hooks.slack.com/services/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"  
 
   # slack-failure:
   #     needs: ["test_deploy_dev","test_deploy_stage"]
@@ -52,17 +52,17 @@ jobs:
   #       webhook-url: "https://hooks.slack.com/services/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"   
 
 
-  # slack-failure:
-  #     needs: ["test_deploy_dev"]
-  #     if: ${{ failure() }}
-  #     name: "Slack fail"
-  #     uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
-  #     with:
-  #       slack-colour: ff0000
-  #       message: fail "${{ needs.test_deploy_dev.outputs.env }}"
-  #       title: fail
-  #     secrets: 
-  #       webhook-url: "https://hooks.slack.com/services/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"   
+  slack-failure:
+      needs: ["test_deploy_dev"]
+      if: ${{ failure() }}
+      name: "Slack fail"
+      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+      with:
+        slack-colour: ff0000
+        message: fail "${{ needs.test_deploy_dev.outputs.env }}"
+        title: fail
+      secrets: 
+        webhook-url: "https://hooks.slack.com/services/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"   
   #
   #   
       #
