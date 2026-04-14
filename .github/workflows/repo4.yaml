@@ -36,7 +36,8 @@ jobs:
         slack-colour: 00ff00
         message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
         title: success    
-        webhook-url: "https://hooks.slack.com/services/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"  
+      secrets: 
+        webhook: "https://hooks.slack.com/services/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"  
 
   # slack-failure:
   #     needs: ["test_deploy_dev","test_deploy_stage"]
@@ -60,7 +61,8 @@ jobs:
         slack-colour: ff0000
         message: fail "${{ needs.test_deploy_dev.outputs.env }}"
         title: fail
-        webhook-url: "https://hooks.slack.com/services/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"   
+      secrets: 
+        webhook: "https://hooks.slack.com/services/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"   
   #
   #   
       #
