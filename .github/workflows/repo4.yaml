@@ -36,7 +36,7 @@ jobs:
         message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
         title: success    
       secrets: 
-        webhook: ${{ secrets.webhook }}
+        webhook: ${{ secrets.WEBHOOK }}
 
 
   slack-failure:
@@ -49,4 +49,4 @@ jobs:
         message: fail "${{ needs.test_deploy_dev.outputs.env }}"
         title: fail
       secrets: 
-        webhook: ${{ secrets.webhook }}   
+        webhook: ${{ secrets.webhook }}
