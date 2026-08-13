@@ -1,4 +1,4 @@
-name: Repo2
+name: Repo4
 on:
     # workflow_dispatch:
     #     inputs: 
@@ -19,34 +19,41 @@ on:
 # env: 
 #   devmessage: "The deployment for OAuth in Dev environment has been successfully completed.${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 jobs:
-  test_deploy_dev:
-    # if: github.ref == 'refs/heads/develop'
-    name: Test deploy dev
-    uses: RTC12-Test/repo3/.github/workflows/deploy.yaml@main
-    # with: 
-    #   docker-image-tag: he
- 
-  slack-success:
-      needs: [test_deploy_dev]
-      if: ${{ success() }}
-      name: "Slack-success"
-      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
-      with:
-        slack-colour: 00ff00
-        message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
-        title: success    
-      secrets: 
-        webhook: ${{ secrets.webhook }}
-
-
-  slack-failure:
-      needs: ["test_deploy_dev"]
-      if: ${{ failure() }}
-      name: "Slack fail"
-      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
-      with:
-        slack-colour: ff0000
-        message: fail "${{ needs.test_deploy_dev.outputs.env }}"
-        title: fail
-      secrets: 
-        webhook: ${{ secrets.webhook }}
+  test:
+   runs-on: ubuntu-latest
+   steps:
+     - name: test
+       run: | 
+         exit 1
+     
+ #  test_deploy_dev:
+ #    # if: github.ref == 'refs/heads/develop'
+ #    name: Test deploy dev
+ #    uses: RTC12-Test/repo3/.github/workflows/deploy.yaml@main
+ #    # with: 
+ #    #   docker-image-tag: he
+ # 
+ #  slack-success:
+ #      needs: [test_deploy_dev]
+ #      if: ${{ success() }}
+ #      name: "Slack-success"
+ #      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+ #      with:
+ #        slack-colour: 00ff00
+ #        message: success ${{ needs.test_deploy_dev.outputs.env }} ${{ needs.test_deploy_dev.outputs.env }}}}
+ #        title: success    
+ #      secrets: 
+ #        webhook: ${{ secrets.webhook }}
+ #
+ #
+ #  slack-failure:
+ #      needs: ["test_deploy_dev"]
+ #      if: ${{ failure() }}
+ #      name: "Slack fail"
+ #      uses: RTC12-Test/repo3/.github/workflows/slack.yaml@main
+ #      with:
+ #        slack-colour: ff0000
+ #        message: fail "${{ needs.test_deploy_dev.outputs.env }}"
+ #        title: fail
+ #      secrets: 
+ #        webhook: ${{ secrets.webhook }}
