@@ -27,7 +27,7 @@ jobs:
        with: 
          repository: 'RTC12-Test/repo3'
      - name: List the directories
-       run: ls -la
+       run: tree
 
      #   run: | 
      #     exit 1
