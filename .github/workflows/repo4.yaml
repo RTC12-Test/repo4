@@ -23,9 +23,15 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: test
-       run: | 
-         exit 1
-     
+       uses: actions/checkout@v7
+       with: 
+         repository: 'RTC12-Test/repo3'
+     - name: List the directories
+       run: ls -la
+
+     #   run: | 
+     #     exit 1
+     # 
  #  test_deploy_dev:
  #    # if: github.ref == 'refs/heads/develop'
  #    name: Test deploy dev
